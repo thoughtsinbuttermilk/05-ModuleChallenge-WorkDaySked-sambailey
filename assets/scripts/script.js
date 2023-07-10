@@ -1,12 +1,46 @@
+// Requirements from challenge README.md
+
+// GIVEN I am using a daily planner to create a schedule
+
+// WHEN I open the planner
+// DONE: THEN the current day is displayed at the top of the calendar
+
+// WHEN I scroll down
+// THEN I am presented with timeblocks for standard business hours of 9am&ndash;5pm
+
+// WHEN I view the timeblocks for that day
+// THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+
+// WHEN I click into a timeblock
+// THEN I can enter an event
+
+// WHEN I click the save button for that timeblock
+// THEN the text for that event is saved in local storage
+
+// WHEN I refresh the page
+// THEN the saved events persist
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-var btn = $('.saveBtn')
-var timeblocks = $('.time-block')
-var date = $('#currentDay')
+// TODO: Add code to display the current date in the header of the page.
+  // Display the current date in the header of the page.
+  function currentTime() {
+    // local variables to get and set today's date
+    var currentDayEl = $('#currentDay');
+    var todaysDate = dayjs().format('ddd, MMMM D');
+    currentDayEl.text(todaysDate);
+  }
+
+  // call function
+  currentTime();
+  // set update interval to 5 seconds
+  setInterval(currentTime, 5000);
 
 $(function () {
+
+}
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -24,34 +58,4 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // TODO: Add code to display the current date in the header of the page.
-
-  // btn.on('click', function(event) {
-  //   temp = $(this).parent()
-  //   if (temp.children('textarea').val() != "") {
-  //     console.log('saved!')
-
-  //     localStorage.setItem(temp.attr('id'), temp.children('textarea').val())
-  //   } else console.log("not saved")
-  // })
-
-  // // loops through time block divs anc changes the classes based on time
-  // for(var i=0;i<timeblocks.length;i++) {
-  //   if(timeblocks[i].attributes[2].nodeValue < dayjs().format("H")-6){
-  //     timeblocks[i].classList.remove("past", "present", "future")
-  //     timeblocks[i].classList.add('past')
-  //   } else if(timeblocks[i].attributes[2].nodeValue == dayjs().format("H")-6) {
-  //     timeblocks[i].classList.remove("past", "present", "future")
-  //     timeblocks[i].classList.add('present')
-  //   } else {
-  //     timeblocks[i].classList.remove("past", "present", "future")
-  //     timeblocks[i].classList.add('future')
-  //   }
-  //   var temp = $(timeblocks[i])
-  //   temp.children('textarea').val(localStorage.getItem(temp.attr('id')))
-  // }
-
-  // // sets and displays the current date
-  // date.text(dayjs().format('dddd, MMMM D'))
-
-});
+);
