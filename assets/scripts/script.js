@@ -9,7 +9,7 @@
 // THEN I am presented with timeblocks for standard business hours of 9am&ndash;5pm
 
 // WHEN I view the timeblocks for that day
-// THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+// DONE: THEN each timeblock is color coded to indicate whether it is in the past, present, or future
 
 // WHEN I click into a timeblock
 // THEN I can enter an event
@@ -27,7 +27,7 @@
 // TODO: Add code to display the current date in the header of the page.
   // Display the current date in the header of the page.
   function currentTime() {
-    // local variables to get and set today's date
+    // local variables to get (from dayjs) and set today's date (in rendered html)
     var currentDayEl = $('#currentDay');
     var todaysDate = dayjs().format('ddd, MMMM D');
     currentDayEl.text(todaysDate);
@@ -38,7 +38,28 @@
   // set update interval to 5 seconds
   setInterval(currentTime, 5000);
 
-$(function () {
+  // TODO: Add code to apply the past, present, or future class to each time
+  // block by comparing the id to the current hour. HINTS: How can the id
+  // attribute of each time-block be used to conditionally add or remove the
+  // past, present, and future classes? How can Day.js be used to get the
+  // current hour in 24-hour time?
+
+$(".time-block").each(function rowClass() {
+    // get current time (from dayjs)
+    var getTime = dayjs().hour();
+    var timeblockID = +$(this).attr('id');
+    // compare getTime to div id hour id
+    // apply css styles for present, future and past to render html
+    if (getTime === timeblockID) {
+      $(this).attr('class', 'row time-block present');
+    } else if (getTime < timeblockID) {
+      $(this).attr('class', 'row time-block future');
+    } else {
+      $(this).attr('class', 'row time-block past');
+    }
+    });
+
+  $(function () {
 
 }
   // TODO: Add a listener for click events on the save button. This code should
