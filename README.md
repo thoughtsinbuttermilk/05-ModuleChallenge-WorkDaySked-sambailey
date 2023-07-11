@@ -27,14 +27,15 @@ When I refresh the page, then the saved events persist
 Thank-you, Jason Thekkekara, for helping me see the unpaired brackets when I was absolutely too tired! 
 
 ## Screen capture, deployed application
-The following animation demonstrates the application functionality:
+A [screen capture](./assets/05-worddayscheduler.png) demonstrates the application functionality:
+
 
 ## Review
 
 You are required to submit the following for review:
 
-* The URL of the deployed application
+* The URL of the deployed application:
+https://thoughtsinbuttermilk.github.io/05-ModuleChallenge-WorkDaySked-sambailey/
 
-
-* The URL of the GitHub repository, with a unique name and a README describing the project
+* The URL of the GitHub repository, with a unique name and a README describing the project:
 https://github.com/thoughtsinbuttermilk/05-ModuleChallenge-WorkDaySked-sambailey
